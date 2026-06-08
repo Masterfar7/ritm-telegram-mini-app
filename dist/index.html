@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Ежедневный трекер привычек для Telegram.">
+  <title>Ритм — трекер привычек</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js?62" defer></script>
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <main>
+    <header class="brand"><span aria-hidden="true">◒</span> Ритм</header>
+    <section class="intro">
+      <p id="today"></p>
+      <h1>Мои привычки</h1>
+    </section>
+    <section class="board" aria-labelledby="week-title">
+      <div class="week-head"><div><h2 id="week-title">Неделя</h2><p id="range"></p></div>
+        <div class="week-actions"><button id="prev" aria-label="Предыдущая неделя">‹</button><button id="next" aria-label="Следующая неделя">›</button></div>
+      </div>
+      <div class="week" id="week" aria-label="Дни недели"></div>
+      <div class="progress"><span id="progress-label"></span><progress id="progress" value="0" max="1" aria-labelledby="progress-label"></progress></div>
+    </section>
+    <section class="habits" aria-labelledby="day-title">
+      <div class="section-head"><h2 id="day-title">Сегодня</h2><button id="add" class="primary">＋ Привычка</button></div>
+      <ul id="list"></ul>
+      <p class="empty" id="empty" hidden>Добавьте первую привычку.</p>
+      <p id="status" role="status"></p>
+    </section>
+  </main>
+  <dialog id="editor">
+    <form id="form">
+      <h2 id="form-title">Привычка</h2>
+      <label>Название <input name="name" required maxlength="48" autocomplete="off"></label>
+      <label>Значок <select name="icon"><option value="🌱">🌱 Рост</option><option value="💧">💧 Вода</option><option value="📖">📖 Чтение</option><option value="🏃">🏃 Движение</option><option value="☀️">☀️ Утро</option><option value="🌙">🌙 Вечер</option></select></label>
+      <p id="error" role="alert" hidden></p>
+      <div class="actions"><button class="danger" id="remove" type="button" hidden>Удалить</button><button id="cancel" type="button">Отмена</button><button class="primary" type="submit">Сохранить</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
